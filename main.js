@@ -1,4 +1,5 @@
 $(function () {
+	// == Event Listeners == //
 	$(document).on("click", ".todo-item-buttons-done", function () {
 		let taskId = $(this).parent().parent().attr("id").replace("task-", "");
 
@@ -29,6 +30,7 @@ $(function () {
 			"clearInput": true,
 		});
 	});
+	// == End Event Listeners == //
 });
 
 let tasks = [];
