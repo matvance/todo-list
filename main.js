@@ -22,8 +22,8 @@ $(function () {
 				"clearInput": true,
 			});
 		}
-	})
-	.on("click", ".task-add-button", function () {
+	});
+	$(".add-task-button").click(function () {
 		tasks.addTask({
 			"title": $(".task-name-input").val(),
 			"clearInput": true,
