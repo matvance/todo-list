@@ -23,6 +23,9 @@ $(function () {
 				"clearInput": true,
 			});
 		}
+	})
+	.on("click", ".todo-done-all-button", function () {
+		console.log("done all clicked");
 	});
 	$(".add-task-button").click(function () {
 		tasks.addTask({
