@@ -4,7 +4,7 @@ $(function () {
 		let taskId = $(this).parent().parent().attr("id").replace("task-", "");
 
 		tasks.getById(taskId).isDone = true;
-		$(this).parent().parent().fadeOut(300, function () {
+		$(this).parent().parent().fadeOut(200, function () {
 			refreshView()
 		});
 	})
@@ -12,7 +12,7 @@ $(function () {
 		let taskId = $(this).parent().parent().attr("id").replace("task-", "");
 
 		tasks.getById(taskId).isRemoved = true;
-		$(this).parent().parent().fadeOut(300, function () {
+		$(this).parent().parent().fadeOut(200, function () {
 			refreshView()
 		});
 	})
@@ -107,7 +107,7 @@ function refreshView () {
 			'<li class="list-group-item align-middle todo-item done" id="task-'+ task.id +'">' +
 				'<span class="todo-item-title"><small class="todo-item-id">'+ task.id + '</small>' + task.title + '</span>' +
 				'<div class="float-right todo-item-buttons">' +
-					'<i class="material-icons todo-item-buttons-remove">backspace</i>' +
+					'<i class="material-icons todo-item-buttons-remove">clear</i>' +
 				'</div>' +
 			'</li>'
 		}
