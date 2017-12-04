@@ -25,8 +25,9 @@ $(function () {
 		}
 	})
 	.on("click", ".todo-done-all-button", function () {
-		console.log("done all clicked");
-	});
+		tasks.doneAll();
+		refreshView();
+	})
 	$(".add-task-button").click(function () {
 		tasks.addTask({
 			"title": $(".task-name-input").val(),
@@ -67,6 +68,11 @@ tasks.addTask = function (params) {
 	}
 	if (params.refreshView || !params.hasOwnProperty("refreshView")) {
 		refreshView();
+	}
+}
+tasks.doneAll = function () {
+	for (let i = 0; i < tasks.length; i++) {
+		tasks[i].isDone = true;
 	}
 }
 
