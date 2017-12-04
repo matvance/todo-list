@@ -28,6 +28,10 @@ $(function () {
 		tasks.doneAll();
 		refreshView();
 	})
+	.on("click", ".todo-clear-all-button", function () {
+		tasks.clearDone();
+		refreshView();
+	})
 	$(".add-task-button").click(function () {
 		tasks.addTask({
 			"title": $(".task-name-input").val(),
@@ -73,6 +77,13 @@ tasks.addTask = function (params) {
 tasks.doneAll = function () {
 	for (let i = 0; i < tasks.length; i++) {
 		tasks[i].isDone = true;
+	}
+}
+tasks.clearDone = function () {
+	for (let i = 0; i < tasks.length; i++) {
+		if (tasks[i].isDone) {
+			tasks[i].isRemoved = true;
+		}
 	}
 }
 

@@ -1,6 +1,9 @@
 .list-container {
 	margin-top: 150px;
 }
+.list-container p {
+	margin-bottom: 0;
+}
 
 .todo-item-title {
 	font-size: 14pt;
@@ -28,7 +31,6 @@
 }
 .list-buttons i {
 	font-size: 32px;
-	color: #4CAF50;
 	margin-left: 10px;
 }
 
@@ -47,18 +49,18 @@
 	border-radius: 16px;
 	color: #388E3C;
 }
-.todo-item-buttons-remove {
+.todo-item-buttons-remove, .todo-clear-all-button {
 	font-size: 24px;
 	margin-top: 5px;
 	color: #F44336;
 	transition-duration: .3s;
 }
-.todo-item-buttons-remove:hover {
+.todo-item-buttons-remove:hover, .todo-clear-all-button:hover {
 	cursor: pointer;
 	color: #EF5350;
 	transition-duration: .0s;
 }
-.todo-item-buttons-remove:active {
+.todo-item-buttons-remove:active, .todo-clear-all-button:active {
 	background: #FFEBEE;
 	border-radius: 16px;
 	color: #D32F2F;
