@@ -1,0 +1,84 @@
+.list-container {
+	margin-top: 150px;
+}
+
+.alerts-wrapper {
+	margin-top: 40px;
+}
+
+.todo-item-title {
+	font-size: 14pt;
+	color: #333;
+	display: inline-block;
+	margin-top: 3px;
+}
+.todo-item-id {
+	color: #BDBDBD;
+	margin-right: 10px;
+}
+
+.material-icons {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.list-buttons {
+	width: 100%;
+	padding-bottom: 40px;
+	padding-right: 25px;
+}
+.list-buttons i {
+	font-size: 32px;
+	margin-left: 10px;
+}
+
+.todo-item-buttons-done, .todo-done-all-button {
+	font-size: 36px;
+	color: #4CAF50;
+	transition-duration: .3s;
+}
+.todo-item-buttons-done:hover, .todo-done-all-button:hover {
+	cursor: pointer;
+	color: #81C784;
+	transition-duration: .0s;
+}
+.todo-item-buttons-done:active, .todo-done-all-button:active {
+	background: #E8F5E9;
+	border-radius: 16px;
+	color: #388E3C;
+}
+.todo-item-buttons-remove, .todo-clear-all-button {
+	font-size: 36px;
+	margin-top: 5px;
+	color: #F44336;
+	transition-duration: .3s;
+}
+.todo-item-buttons-remove:hover, .todo-clear-all-button:hover {
+	cursor: pointer;
+	color: #EF5350;
+	transition-duration: .0s;
+}
+.todo-item-buttons-remove:active, .todo-clear-all-button:active {
+	background: #FFEBEE;
+	border-radius: 16px;
+	color: #D32F2F;
+}
+
+.todo-add-task-container {
+	margin-top: 20px;
+}
+.add-task-button i{
+	display: block;
+}
+
+.done-tasks-container {
+	margin-top: 40px;
+}
+
+.todo-item.done span{
+	color: #757575;
+}
