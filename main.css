@@ -46,24 +46,43 @@ body {
 }
 .todo-item-buttons-done:hover, .todo-done-all-button:hover {
 	cursor: pointer;
-	color: #81C784;
+	color: #00796b;
 }
 
 .todo-item-buttons-remove, .todo-clear-all-button {
 	font-size: 36px;
 	margin-top: 5px;
-	color: #F44336;
+	color: #f44336;
 }
 .todo-item-buttons-remove:hover, .todo-clear-all-button:hover {
 	cursor: pointer;
-	color: #EF5350;
+	color: #c62828;
 }
 
 .todo-add-task-container {
 	margin-top: 20px;
 }
+.todo-add-task-container input {
+	border: 1px solid #f1f1f1;
+	outline: none;
+}
+input[type="text"]:focus, textarea, button {
+	outline: none;
+	box-shadow:none !important;
+}
+
 .add-task-button i{
 	display: block;
+}
+.add-task-button {
+	background: #009688;
+	border: 0;
+}
+.add-task-button:hover {
+	background: #00796b;
+}
+.add-task-button:active {
+	background: #00796b;
 }
 
 .done-tasks-container {
