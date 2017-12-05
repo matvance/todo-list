@@ -34,7 +34,7 @@ $(function () {
 	.on("click", ".undo-button", function (e) {
 		e.preventDefault();
 
-		undoAction($(this).attr("action"));
+		undoAction();
 
 		$(this).parent().fadeOut(300);
 	})

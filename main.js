@@ -1,5 +1,5 @@
 let tasks = [];
-let lastActionItemsIds = [];
+let actionsHistory = [];
 
 tasks.getById = function (id) {
 	return tasks.find((task) => task.id == id);
@@ -32,36 +32,40 @@ tasks.addTask = function (params) {
 	}
 }
 tasks.doneAll = function () {
-	let itemsIds = [];
+	let tasksIds = [];
 
-	for (let i = 0; i < tasks.length; i++) {
-		let task = tasks[i];
+	tasks.forEach((task) => {
 		if (!task.isDone) {
 			task.isDone = true;
-			itemsIds.push(task.id);
+			tasksIds.push(task.id);
 		}
-	}
+	})
 
-	lastActionItemsIds = itemsIds;
+	actionsHistory.push({
+		"action": "done-all",
+		"tasks": tasksIds
+	})
 
-	if (itemsIds.length > 0) {
+	if (tasksIds.length > 0) {
 		showAlert("done-all");
 	}
 }
 tasks.clearDone = function () {
-	let itemsIds = [];
-	
-	for (let i = 0; i < tasks.length; i++) {
-		let task = tasks[i];
+	let tasksIds = [];
+
+	tasks.forEach((task) => {
 		if (task.isDone) {
 			task.isRemoved = true;
-			itemsIds.push(task.id);
+			tasksIds.push(task.id);
 		}
-	}
+	})
 
-	lastActionItemsIds = itemsIds;
+	actionsHistory.push({
+		"action": "clear-all",
+		"tasks": tasksIds
+	})
 
-	if (itemsIds.length > 0) {
+	if (tasksIds.length > 0) {
 		showAlert("clear-all");
 	}
 }
@@ -115,14 +119,15 @@ function showAlert (action) {
 	$(".alerts-wrapper").append(alertHtml).hide().fadeIn(300).delay(3000).fadeOut(800);
 }
 
-function undoAction (action) {
-	for (let i = 0; i < lastActionItemsIds.length; i++) {
-		if (action == "done-all") {
-			tasks.getById(lastActionItemsIds[i]).isDone = false;
-		} else if (action == "clear-all") {
-			tasks.getById(lastActionItemsIds[i]).isRemoved = false;
+function undoAction () {
+	const lastAction = actionsHistory[actionsHistory.length - 1];
+	lastAction.tasks.forEach((taskId) => {
+		if (lastAction.action == "done-all") {
+			tasks.getById(taskId).isDone = false;
+		} else if (lastAction.action == "clear-all") {
+			tasks.getById(taskId).isRemoved = false;
 		}
-	}
+	})
 
 	refreshView();
 }
