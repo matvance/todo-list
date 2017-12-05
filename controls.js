@@ -31,6 +31,13 @@ $(function () {
 		tasks.clearDone();
 		refreshView();
 	})
+	.on("click", ".undo-button", function (e) {
+		e.preventDefault();
+
+		undoAction($(this).attr("action"));
+
+		$(this).parent().fadeOut(300);
+	})
 	$(".add-task-button").click(function () {
 		tasks.addTask({
 			"title": $(".task-name-input").val(),

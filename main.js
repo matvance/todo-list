@@ -1,4 +1,6 @@
 let tasks = [];
+let lastActionItemsIds = [];
+
 tasks.getById = function (id) {
 	return this.filter(function (item) {
 		return item.id == id;
@@ -32,16 +34,32 @@ tasks.addTask = function (params) {
 	}
 }
 tasks.doneAll = function () {
+	let itemsIds = [];
+
 	for (let i = 0; i < tasks.length; i++) {
-		tasks[i].isDone = true;
-	}
-}
-tasks.clearDone = function () {
-	for (let i = 0; i < tasks.length; i++) {
-		if (tasks[i].isDone) {
-			tasks[i].isRemoved = true;
+		let task = tasks[i];
+		if (!task.isDone) {
+			task.isDone = true;
+			itemsIds.push(task.id);
 		}
 	}
+
+	lastActionItemsIds = itemsIds;
+	showAlert("done-all");
+}
+tasks.clearDone = function () {
+	let itemsIds = [];
+	
+	for (let i = 0; i < tasks.length; i++) {
+		let task = tasks[i];
+		if (task.isDone) {
+			task.isRemoved = true;
+			itemsIds.push(task.id);
+		}
+	}
+
+	lastActionItemsIds = itemsIds;
+	showAlert("clear-all");
 }
 
 function refreshView () {
@@ -72,4 +90,34 @@ function refreshView () {
 
 	$(".tasks-list").html(tasksHTML);
 	$(".done-tasks-list").html(doneTasksHTML);
+}
+
+function showAlert (action) {
+	let alertText = "";
+	if (action == "done-all") {
+		alertText = "All tasks marked as done";
+	} else if (action == "clear-all") {
+		alertText = "All done tasks removed";
+	}
+
+	const alertHtml = 
+	'<div class="alert alert-light " role="alert">' +
+		alertText +
+		'<a href="" action="' + action + '" class="float-right undo-button">undo</a>' +
+	'</div>';
+
+	$(".alert").hide();
+	$(".alerts-wrapper").append(alertHtml).hide().fadeIn(300).delay(3000).fadeOut(800);
+}
+
+function undoAction (action) {
+	for (let i = 0; i < lastActionItemsIds.length; i++) {
+		if (action == "done-all") {
+			tasks.getById(lastActionItemsIds[i]).isDone = false;
+		} else if (action == "clear-all") {
+			tasks.getById(lastActionItemsIds[i]).isRemoved = false;
+		}
+	}
+
+	refreshView();
 }

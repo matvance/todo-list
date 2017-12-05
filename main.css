@@ -1,8 +1,9 @@
 .list-container {
 	margin-top: 150px;
 }
-.list-container p {
-	margin-bottom: 0;
+
+.alerts-wrapper {
+	margin-top: 40px;
 }
 
 .todo-item-title {
