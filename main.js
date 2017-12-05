@@ -2,7 +2,7 @@ let tasks = [];
 let lastActionItemsIds = [];
 
 tasks.getById = function (id) {
-	return tasks.find((x) => x.id == id);
+	return tasks.find((task) => task.id == id);
 }
 /*
 tasks.addTask(
