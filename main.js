@@ -106,6 +106,7 @@ function showAlert (action) {
 		'<a href="" action="' + action + '" class="float-right undo-button">undo</a>' +
 	'</div>';
 
+	$(".alerts-wrapper").finish();
 	$(".alert").hide();
 	$(".alerts-wrapper").append(alertHtml).hide().fadeIn(300).delay(3000).fadeOut(800);
 }
