@@ -45,7 +45,10 @@ tasks.doneAll = function () {
 	}
 
 	lastActionItemsIds = itemsIds;
-	showAlert("done-all");
+
+	if (itemsIds > 0) {
+		showAlert("done-all");
+	}
 }
 tasks.clearDone = function () {
 	let itemsIds = [];
@@ -59,7 +62,10 @@ tasks.clearDone = function () {
 	}
 
 	lastActionItemsIds = itemsIds;
-	showAlert("clear-all");
+
+	if (itemsIds > 0) {
+		showAlert("clear-all");
+	}
 }
 
 function refreshView () {
