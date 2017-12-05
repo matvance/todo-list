@@ -46,7 +46,7 @@ tasks.doneAll = function () {
 
 	lastActionItemsIds = itemsIds;
 
-	if (itemsIds > 0) {
+	if (itemsIds.length > 0) {
 		showAlert("done-all");
 	}
 }
@@ -63,7 +63,7 @@ tasks.clearDone = function () {
 
 	lastActionItemsIds = itemsIds;
 
-	if (itemsIds > 0) {
+	if (itemsIds.length > 0) {
 		showAlert("clear-all");
 	}
 }
