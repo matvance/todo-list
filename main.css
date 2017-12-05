@@ -27,16 +27,14 @@
 }
 
 .list-buttons {
-	width: 100%;
-	padding-bottom: 40px;
-	padding-right: 25px;
+	padding-right: 35px;
+	margin-bottom: 20px;
 }
 .list-buttons i {
-	font-size: 32px;
-	margin-left: 10px;
+	font-size: 36px;
 }
 
-.todo-item-buttons-done, .todo-done-all-button {
+.todo-item-buttons-done i, .todo-done-all-button {
 	font-size: 36px;
 	color: #009688;
 }
@@ -45,12 +43,11 @@
 	color: #00796b;
 }
 
-.todo-item-buttons-remove, .todo-clear-all-button {
+.todo-item-buttons-clear i, .todo-clear-all-button {
 	font-size: 36px;
-	margin-top: 5px;
 	color: #f44336;
 }
-.todo-item-buttons-remove:hover, .todo-clear-all-button:hover {
+.todo-item-buttons-clear:hover, .todo-clear-all-button:hover {
 	cursor: pointer;
 	color: #c62828;
 }

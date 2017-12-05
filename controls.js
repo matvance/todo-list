@@ -7,7 +7,7 @@ $(function () {
 			refreshView()
 		});
 	})
-	.on("click", ".todo-item-buttons-remove", function () {
+	.on("click", ".todo-item-buttons-clear", function () {
 		let taskId = $(this).parent().parent().attr("id").replace("task-", "");
 
 		tasks.getById(taskId).isRemoved = true;

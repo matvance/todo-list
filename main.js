@@ -82,7 +82,9 @@ function refreshView () {
 			'<li class="list-group-item align-middle todo-item" id="task-' + task.id + '">' +
 				'<span class="todo-item-title"><small class="todo-item-id">' + task.id + '</small>' + task.title + '</span>' +
 				'<div class="float-right todo-item-buttons">' +
-					'<i class="material-icons todo-item-buttons-done">done</i>' +
+					'<button class="btn btn-outline-light float-right todo-item-buttons-done" type="button">' +
+						'<i class="material-icons">done</i>' +
+					'</button>' +
 				'</div>' +
 			'</li>'
 		} else if(task.isDone && !task.isRemoved) {
@@ -90,7 +92,9 @@ function refreshView () {
 			'<li class="list-group-item align-middle todo-item done" id="task-'+ task.id +'">' +
 				'<span class="todo-item-title"><small class="todo-item-id">'+ task.id + '</small>' + task.title + '</span>' +
 				'<div class="float-right todo-item-buttons">' +
-					'<i class="material-icons todo-item-buttons-remove">clear</i>' +
+					'<button class="btn btn-outline-light float-right todo-item-buttons-clear" type="button">' +
+						'<i class="material-icons">clear</i>' +
+					'</button>' +
 				'</div>' +
 			'</li>'
 		}
