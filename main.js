@@ -95,15 +95,15 @@ function refreshView () {
 function showAlert (action) {
 	let alertText = "";
 	if (action == "done-all") {
-		alertText = "All tasks marked as done";
+		alertText = '<span class="text-success">All tasks marked as done</span>';
 	} else if (action == "clear-all") {
-		alertText = "All done tasks removed";
+		alertText = '<span class="text-danger">All done tasks removed</span>';
 	}
 
 	const alertHtml = 
 	'<div class="alert alert-light " role="alert">' +
 		alertText +
-		'<a href="" action="' + action + '" class="float-right undo-button">undo</a>' +
+		'<a href="" action="' + action + '" class="float-right text-secondary undo-button">undo</a>' +
 	'</div>';
 
 	$(".alerts-wrapper").finish();
