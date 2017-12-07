@@ -17,8 +17,17 @@ $(function () {
 		$("#new-task input").val("")
 	})
 
-	// $(document).on("click", "done-task", () => {
-	// 	console.log($(this));
-	// });
+	$(document).on("click", ".done-task", function () {
+
+		let task = $(this).parent();
+		// MOVE ANIMATIONS TO doneTask() and removeTask() FUNCTIONS
+		
+		task.addClass("uk-animation-reverse").addClass("uk-animation-slide-left-small");
+		setTimeout(function(){
+		  task.remove();
+		}, 500);
+
+
+	});
 
 })

@@ -13,7 +13,7 @@ function addTask (name) {
 		'<li id="task-'+ newTask.id +'">' +
 			'<span class="uk-text-meta task-id">'+ newTask.id +'</span>' +
 			newTask.name +
-			'<a href="" uk-icon="icon: check; ratio: 1.5" class="uk-align-right"></a>' +
+			'<a href="" uk-icon="icon: check; ratio: 1.5" class="uk-align-right done-task"></a>' +
 		'</li>'
 	)
 }
