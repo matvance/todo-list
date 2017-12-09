@@ -1,68 +1,47 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>To-do List</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-4.b2.min.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="main.css">
-</head>
-<body>
-	<div class="container">
-		<div class="row list-container">
-			<div class="col"></div>
-			<div class="col-md-8">
-				<div class="card">
-					<div class="card-body">
-						<h2>To-do list</h2>
-						<p>Add your tasks</p>
-						
-						<div class="row">
-							<div class="list-buttons col-md-12">
-								<button class="btn btn-outline-light float-right todo-done-all-button" type="button">
-									<i class="material-icons">done_all</i>
-								</button>
-							</div>
-						</div>
+<html lang="en">
+    <head>
+        <title>Todo List v2.0</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/uikit.min.css" />
+        <link rel="stylesheet" href="style.css" /> <!-- style.css -->
+        <script src="js/uikit.min.js"></script>
+        <script src="js/uikit-icons.min.js"></script>
+        <script src="js/jquery-3.2.1.min.js"></script> <!-- jquery-3.2.1.min.js -->
+        <script src="app.js"></script> <!-- app.js -->
+        <script src="controls.js"></script> <!-- controls.js -->
+    </head>
+    <body>
 
-						<ul class="list-group tasks-list">
-						</ul>
+        <div class="uk-width-large uk-align-center todo-list"> <!-- todo-list -->
+            <div class="uk-card uk-card-default uk-card-body">
+                <h3 class="uk-card-title">Todo List 2</h3>
+                <p>Add some tasks and get things done</p>
 
-						<div class="input-group todo-add-task-container">
-							<input type="text" class="form-control task-name-input" placeholder="Name for your task">
-							<span class="input-group-btn">
-								<button class="btn btn-primary add-task-button" type="button">
-									<i class="material-icons">add</i>
-								</button>
-							</span>
-						</div>
+                <div class="group-button" id="done-all"> <!-- done-all-button --> 
+                    <button class="uk-button uk-button-default uk-button-small">
+                        <span uk-icon="icon: check; ratio: 1"></span>
+                        Done
+                    </button>
+                </div>
+                <ul class="uk-list uk-list-divider tasks" id="undone-tasks"> <!-- undone-tasks -->
+                </ul>
 
-						<div class="done-tasks-container">
-							<h4>Done tasks:</h4>
+                <div class="uk-inline uk-width-full" id="new-task"> <!-- new-task -->
+                    <input class="uk-input" placeholder="new task">
+                    <a class="uk-form-icon uk-form-icon-flip" href="" uk-icon="icon: plus"></a>
+                </div>
 
-							<div class="row">
-								<div class="list-buttons col-md-12">
-									<button class="btn btn-outline-light float-right todo-clear-all-button" type="button">
-										<i class="material-icons">clear_all</i>
-									</button>
-								</div>
-							</div>
-
-							<ul class="list-group done-tasks-list">
-							</ul>
-						</div>					
-					</div>
-				</div>
-				<div class="alerts-wrapper">
-					
-				</div>	
-			</div>
-			<div class="col"></div>
-		</div>
-	</div>
-
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="main.js"></script>
-<script type="text/javascript" src="controls.js"></script>
-</body>
+                <div class="group-button" id="clear-all"> <!-- clear-all-button --> 
+                    <button class="uk-button uk-button-default uk-button-small">
+                        <span uk-icon="icon: trash; ratio: 1"></span>
+                        Clear
+                    </button>
+                </div>
+                <ul class="uk-list uk-list-divider tasks" id="done-tasks"> <!-- done-tasks -->
+                </ul>
+            </div>
+        </div>
+    </body>
 </html>

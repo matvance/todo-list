@@ -1,47 +1,42 @@
-$(function () {	
-	$(document).on("click", ".todo-item-buttons-done", function () {
-		let taskId = $(this).parent().parent().attr("id").replace("task-", "");
-
-		tasks.getById(taskId).isDone = true;
-		$(this).parent().parent().fadeOut(200, function () {
-			refreshView()
-		});
-	})
-	.on("click", ".todo-item-buttons-clear", function () {
-		let taskId = $(this).parent().parent().attr("id").replace("task-", "");
-
-		tasks.getById(taskId).isRemoved = true;
-		$(this).parent().parent().fadeOut(200, function () {
-			refreshView()
-		});
-	})
-	.on("keypress", ".task-name-input", function (e) {
-		if (e.which == 13) {
-			tasks.addTask({
-				"title": $(".task-name-input").val(),
-				"clearInput": true,
-			});
+$(function () {
+	$("#new-task input")
+	.keypress(function (e) {
+		if (e.which == 13 && $(this).val()) {
+			addTask($(this).val());
+			$(this).val("")
 		}
 	})
-	.on("click", ".todo-done-all-button", function () {
-		tasks.doneAll();
-		refreshView();
-	})
-	.on("click", ".todo-clear-all-button", function () {
-		tasks.clearDone();
-		refreshView();
-	})
-	.on("click", ".undo-button", function (e) {
-		e.preventDefault();
 
-		undoAction();
+	$(document).on("click", "a", (e) => e.preventDefault());
 
-		$(this).parent().fadeOut(300);
+	$("#new-task").on("click", "a", () => {
+		let taskInput = $("#new-task input");
+
+		if (taskInput.val()) {
+			addTask(
+				taskInput.val()
+			);
+		}
+		
+		taskInput.val("")
 	})
-	$(".add-task-button").click(function () {
-		tasks.addTask({
-			"title": $(".task-name-input").val(),
-			"clearInput": true,
-		});
-	});
-});
+
+	$(document)
+	.on("click", ".done-task", function () {
+		const taskElement = $(this).parent();
+
+		doneTask(taskElement);
+	})
+	.on("click", ".remove-task", function () {
+		const taskElement = $(this).parent();
+
+		removeTask(taskElement);
+	})
+	.on("click", "#done-all", function () {
+		doneAll()
+	})
+	.on("click", "#clear-all", function () {
+		clearAll()
+	})
+
+})
