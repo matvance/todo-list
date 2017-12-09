@@ -35,5 +35,8 @@ $(function () {
 	.on("click", "#done-all", function () {
 		doneAll()
 	})
+	.on("click", "#clear-all", function () {
+		clearAll()
+	})
 
 })

@@ -54,3 +54,14 @@ function doneAll () {
 		})
 	}
 }
+function clearAll () {
+	if ($("#done-tasks li").length > 0) {
+		let tasks = $("#done-tasks li").toArray();
+
+		let timeout = 0;
+		tasks.forEach((task) => {
+			setTimeout(removeTask, timeout, $(task))
+			timeout += 300;
+		})
+	}
+}
