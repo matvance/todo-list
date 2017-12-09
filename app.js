@@ -8,6 +8,12 @@ function addTask (taskName) {
 			'<a href="" uk-icon="icon: check; ratio: 1.5" class="uk-align-right done-task"></a>' +
 		'</li>'
 	)
+	
+	$("#task-" + id).addClass("uk-animation-slide-left-small");
+
+	setTimeout(() => {
+		$("#task-" + id).removeClass("uk-animation-slide-left-small");
+	}, 500)
 }
 
 function doneTask (taskElement) {
