@@ -11,7 +11,7 @@ $(function () {
 
 	$("#new-task").on("click", "a", () => {
 		let taskInput = $("#new-task input");
-		
+
 		if (taskInput.val()) {
 			addTask(
 				taskInput.val()
@@ -31,6 +31,9 @@ $(function () {
 		const taskElement = $(this).parent();
 
 		removeTask(taskElement);
-	});
+	})
+	.on("click", "#done-all", function () {
+		doneAll()
+	})
 
 })

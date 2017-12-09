@@ -32,12 +32,25 @@ function doneTask (taskElement) {
 
 	}, 500);
 }
+
 function removeTask (taskElement) {
 	const id = taskElement.attr("id").replace("task-", "");
 
 	taskElement.addClass("uk-animation-reverse").addClass("uk-animation-slide-right-small");
-	
+
 	setTimeout(function () {
 		$("#task-" + id).remove()
 	}, 500)
+}
+
+function doneAll () {
+	if ($("#undone-tasks li").length > 0) {
+		let tasks = $("#undone-tasks li").toArray();
+		
+		let timeout = 0;
+		tasks.forEach((task) => {
+			setTimeout(doneTask, timeout, $(task))
+			timeout += 300;
+		})
+	}
 }
