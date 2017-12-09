@@ -1,7 +1,7 @@
 $(function () {
 	$("#new-task input")
 	.keypress(function (e) {
-		if (e.which == 13) {
+		if (e.which == 13 && $(this).val()) {
 			addTask($(this).val());
 			$(this).val("")
 		}
@@ -10,24 +10,27 @@ $(function () {
 	$(document).on("click", "a", (e) => e.preventDefault());
 
 	$("#new-task").on("click", "a", () => {
-		addTask(
-			$("#new-task input").val()
-		);
-
-		$("#new-task input").val("")
+		let taskInput = $("#new-task input");
+		
+		if (taskInput.val()) {
+			addTask(
+				taskInput.val()
+			);
+		}
+		
+		taskInput.val("")
 	})
 
-	$(document).on("click", ".done-task", function () {
+	$(document)
+	.on("click", ".done-task", function () {
+		const taskElement = $(this).parent();
 
-		let task = $(this).parent();
-		// MOVE ANIMATIONS TO doneTask() and removeTask() FUNCTIONS
-		
-		task.addClass("uk-animation-reverse").addClass("uk-animation-slide-left-small");
-		setTimeout(function(){
-		  task.remove();
-		}, 500);
+		doneTask(taskElement);
+	})
+	.on("click", ".remove-task", function () {
+		const taskElement = $(this).parent();
 
-
+		removeTask(taskElement);
 	});
 
 })
